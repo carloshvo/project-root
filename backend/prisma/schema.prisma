@@ -1,0 +1,51 @@
+// backend/prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               Int              @id @default(autoincrement())
+  nome             String
+  email            String           @unique
+  senha            String
+  perfil           String           @default("operador")
+  data_criacao     DateTime         @default(now())
+  data_atualizacao DateTime         @updatedAt
+  movements        StockMovement[]
+
+  @@index([email])
+}
+
+model Material {
+  id                Int              @id @default(autoincrement())
+  codigo            String           @unique
+  nome              String
+  descricao         String?
+  categoria         String?
+  unidade_medida    String
+  quantidade_estoque Int             @default(0)
+  estoque_minimo    Int              @default(0)
+  data_criacao      DateTime         @default(now())
+  data_atualizacao  DateTime         @updatedAt
+  movements         StockMovement[]
+
+  @@index([nome])
+  @@index([categoria])
+}
+
+model StockMovement {
+  id                Int       @id @default(autoincrement())
+  tipo              String    @db.VarChar(20)
+  quantidade        Int
+  data_movimentacao DateTime  @default(now())
+  material          Material  @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  materialId        Int
+  usuario           User?     @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+  usuarioId         Int?
+}

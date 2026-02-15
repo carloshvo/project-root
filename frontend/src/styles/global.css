@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+.sidebar {
+  width: 200px;
+  float: left;
+  background: #f4f4f4;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.dashboard, .page {
+  margin-left: 220px;
+  padding: 1rem;
+}

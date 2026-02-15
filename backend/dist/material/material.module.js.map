@@ -1,0 +1,1 @@
+{"version":3,"file":"material.module.js","sourceRoot":"","sources":["../../src/material/material.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,+DAA4D;AAC5D,yDAAsD;AACtD,6DAAyD;AAMlD,IAAM,cAAc,GAApB,MAAM,cAAc;CAAI,CAAA;AAAlB,wCAAc;yBAAd,cAAc;IAJ1B,IAAA,eAAM,EAAC;QACN,WAAW,EAAE,CAAC,yCAAmB,CAAC;QAClC,SAAS,EAAE,CAAC,mCAAgB,EAAE,8BAAa,CAAC;KAC7C,CAAC;GACW,cAAc,CAAI"}
